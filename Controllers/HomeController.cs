@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-// using LibraryOfVermundi.Models;
+using LibraryOfVermundi.Models;
 
 namespace LibraryOfVermundi.Controllers
 {
@@ -15,7 +15,22 @@ namespace LibraryOfVermundi.Controllers
 
         public IActionResult Index()
         {
+            Entry model = new Entry();
+            model.Contributor = new AppUser();
+            return View(model);
+        }
+
+        public IActionResult Entries()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Entries(Entry model)
+        {
+            model.SubmissionDate = DateTime.Now;
+            model.Protected = model.Content.Contains("demon");
+            return View("Index", model);
         }
 
 

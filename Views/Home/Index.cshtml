@@ -1,15 +1,25 @@
+@model Entry
 @{
-    Layout = null;
+    ViewData["Title"] = "The Library of Vermundi";
 }
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width">
-        <title>The Library of Vermundi</title>
-    </head>
-    <body>
-        <h1>The Library of Vermundi</h1>
-        <p>Welcome to the Library of Vermundi, a comprehensive collection of the most controversial information in the Empire.</p>
-    </body>
-</html>
+
+<h1 class="display-4">The Library of Vermundi</h1>
+<p>Welcome to the Library of Vermundi, a comprehensive collection of the most controversial information in the Empire.</p>
+
+<h1>Temporary Placeholder for the Data</h1>
+@if (Model.Contributor.UserName != null)
+{
+    <p>
+        Title: @Model.Title <br>
+        Category: @Model.Category <br>
+        Content: @Model.Content <br>
+        Contributor: @Model.Contributor.UserName
+        Submission Date: @Model.SubmissionDate
+        Protected: @Model.Protected
+    </p>
+} else 
+{
+    <p>Have a story to contribute?</p>
+}
+<a href="Entries" class="btn btn-success">Contribution Form</a>
