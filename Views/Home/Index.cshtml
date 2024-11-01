@@ -1,4 +1,3 @@
-@model Entry
 @{
     ViewData["Title"] = "The Library of Vermundi";
 }
@@ -7,19 +6,3 @@
 <h1 class="display-4">The Library of Vermundi</h1>
 <p>Welcome to the Library of Vermundi, a comprehensive collection of the most controversial information in the Empire.</p>
 
-<h1>Temporary Placeholder for the Data</h1>
-@if (Model.Contributor.UserName != null)
-{
-    <p>
-        Title: @Model.Title <br>
-        Category: @Model.Category <br>
-        Content: @Model.Content <br>
-        Contributor: @Model.Contributor.UserName <br>
-        Submission Date: @Model.SubmissionDate <br>
-        Protected: @Model.Protected <br>
-    </p>
-} else 
-{
-    <p>Have a story to contribute?</p>
-}
-<a href="Home/Entries" class="btn btn-success">Contribution Form</a>

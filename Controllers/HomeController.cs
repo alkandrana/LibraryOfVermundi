@@ -15,22 +15,28 @@ namespace LibraryOfVermundi.Controllers
 
         public IActionResult Index()
         {
+            
+            return View();
+        }
+
+        public IActionResult Search()
+        {
             Entry model = new Entry();
             model.Contributor = new AppUser();
             return View(model);
         }
 
-        public IActionResult Entries()
+        public IActionResult ContributionForm()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Entries(Entry model)
+        public IActionResult ContributionForm(Entry model)
         {
             model.SubmissionDate = DateTime.Now;
             model.Protected = model.Content.Contains("demon");
-            return View("Index", model);
+            return View("Search", model);
         }
 
 
