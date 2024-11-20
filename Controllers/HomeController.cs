@@ -19,7 +19,18 @@ namespace LibraryOfVermundi.Controllers
             return View();
         }
 
-        
+        public IActionResult ContributionForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ContributionForm(Entry model)
+        {
+            model.SubmissionDate = DateTime.Now;
+            model.Protected = model.Content.Contains("demon");
+            return View("Search", model);
+        }
 
 
     }
