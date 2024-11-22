@@ -2,7 +2,10 @@ namespace LibraryOfVermundi.Models
 {
     public class Entry
     {
-        public string Content { get; set; }
+        public int EntryId { get; set; }
+        public string RawContent { get; set; } = "";
+
+        public string[] Content => RawContent.Split('\n');
 
         public string Title { get; set; }
 
@@ -12,6 +15,7 @@ namespace LibraryOfVermundi.Models
 
         public DateTime SubmissionDate { get; set; }
 
-        public bool Protected { get; set; }
+        public bool Protected => RawContent.Contains("demon");
     }
+    
 }

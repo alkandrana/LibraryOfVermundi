@@ -19,7 +19,7 @@
     <div class="row p-2">
         <label for="content" class="col-form-label col-md-2 mb-3">Content</label>
         <div class="col-md-8">
-            <textarea id="content" name="Content" class="form-control bg-dark-subtle"></textarea>
+            <textarea id="content" name="RawContent" class="form-control bg-dark-subtle"></textarea>
         </div>
     </div>
     <div class="row p-2">
@@ -31,6 +31,19 @@
     <div class="row p-2">
         <div class="col-md-2 offset-md-8">
             <button type="submit" class="form-control btn btn-danger">Submit</button>
+            <button type="button" id="viewContent" class="btn btn-warning">Compile</button>
         </div>
     </div>
 </form>
+<script>
+    console.log("Javascript is on the job!");
+    document.getElementById("viewContent").addEventListener("click", function()
+    {
+        let content = document.getElementById("content").value;
+        let hasPar = content.search("\n");
+        console.log(hasPar);
+        console.log(content);
+    });
+    
+
+</script>

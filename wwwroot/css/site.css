@@ -2,3 +2,9 @@ body {
     background-color: #400020;
     /* background-image: url("../pics/peter-herrmann-library.jpg"); */
 }
+
+.dataDisplay {
+    max-width: 50%; 
+    margin-left: auto; 
+    margin-right: auto;
+}

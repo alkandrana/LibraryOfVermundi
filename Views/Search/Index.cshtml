@@ -1,14 +1,38 @@
+@model Entry
 @{
     ViewData["Title"] = "Library Catalog";
 }
 
 <h1 class="text-center">Search the Library Catalog</h1>
-<ul>
+<ul class="list-unstyled">
     <li>
-        <a asp-action="Index" asp-controller="Search">Search Home</a>
+        <a asp-action="Index" asp-controller="Search" class="btn btn-success">Search Home</a>
     </li>
-    <li class="nav-item">
-        <a asp-action="Search" asp-controller="Search">Search</a>
+    <li>
+        <a asp-action="ContributionForm" asp-controller="Search" class="btn btn-danger">Contribution Form</a>
     </li>
 </ul>
+
+<div>
+    <h1 class="text-center">Search Here</h1>
+    @if (Model.RawContent != "")
+    {
+        <h3 class="text-center mt-5">@Model.Title</h3>
+            @foreach (string sentence in Model.Content)
+                     {
+                         if (sentence.Length < 100)
+                         {
+                             <h5>@sentence</h5>
+                         }
+                         else
+                         {
+                             <p class="dataDisplay">@sentence</p>
+                         }
+                     }
+    } else
+    {
+        <p>Have a story to contribute?</p>
+        <a asp-controller="Search" asp-action="ContributionForm" class="btn btn-success">Contribution Form</a>
+    }
     
+</div>
