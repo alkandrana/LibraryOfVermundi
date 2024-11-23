@@ -1,4 +1,4 @@
-@model Entry
+@model List<Entry>
 @{
     ViewData["Title"] = "Library Catalog";
 }
@@ -15,20 +15,24 @@
 
 <div>
     <h1 class="text-center">Search Here</h1>
-    @if (Model.RawContent != "")
+    @if (Model.Count > 0)
     {
-        <h3 class="text-center mt-5">@Model.Title</h3>
-            @foreach (string sentence in Model.Content)
-                     {
-                         if (sentence.Length < 100)
-                         {
-                             <h5>@sentence</h5>
-                         }
-                         else
-                         {
-                             <div class="dataDisplay">@sentence</div>
-                         }
-                     }
+        foreach (Entry e in Model)
+        {
+            <h3 class="text-center mt-5">@e.Title</h3>
+            @foreach (string sentence in e.Content)
+            {
+                if (sentence.Length < 100)
+                {
+                    <h5 class="dataDisplay pt-5">@sentence</h5>
+                }
+                else
+                {
+                    <div class="dataDisplay">@sentence</div>
+                }
+            } 
+        }
+        
     } else
     {
         <p>Have a story to contribute?</p>

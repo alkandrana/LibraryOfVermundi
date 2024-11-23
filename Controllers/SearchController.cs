@@ -1,3 +1,4 @@
+using LibraryOfVermundi.Data;
 using Microsoft.AspNetCore.Mvc;
 using LibraryOfVermundi.Models;
 
@@ -5,11 +6,16 @@ namespace LibraryOfVermundi.Controllers;
 
 public class SearchController : Controller
 {
+    private AppDbContext _context;
+
+    public SearchController(AppDbContext ctx)
+    {
+        _context = ctx;
+    }
     // GET
     public IActionResult Index()
     {
-        Entry model = new Entry();
-        model.Contributor = new AppUser();
+        List<Entry> model = _context.Entries.ToList();
         return View(model);
     }
     
@@ -22,6 +28,8 @@ public class SearchController : Controller
     public IActionResult ContributionForm(Entry model)
     {
         model.SubmissionDate = DateTime.Now;
-        return View("Index", model);
+        _context.Entries.Add(model);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 }
