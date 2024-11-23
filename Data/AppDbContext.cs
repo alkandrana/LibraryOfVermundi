@@ -10,4 +10,7 @@ public class AppDbContext : DbContext
     public DbSet<Entry> Entries { get; set; }
     
     public DbSet<AppUser> AppUsers { get; set; }
+    
+    public DbSet<Category> Categories { get; set; }
+    
 }

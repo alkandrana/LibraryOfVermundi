@@ -16,11 +16,17 @@ namespace LibraryOfVermundi.Models
         
         [StringLength(2)]
         public string CategoryId { get; set; } = String.Empty;
-        public Category? Category { get; set; }
+
+        public List<Category> Category { get; } = new List<Category>();
 
         public DateTime SubmissionDate { get; set; }
 
         public bool Protected => RawContent.Contains("demon");
+
+        public void AddCategory(Category category)
+        {
+            Category.Add(category);
+        }
     }
     
 }
