@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace LibraryOfVermundi.Models
 {
     public class Entry
@@ -7,11 +9,14 @@ namespace LibraryOfVermundi.Models
 
         public string[] Content => RawContent.Split('\n');
 
-        public string Title { get; set; }
+        [StringLength(100)]
+        public string Title { get; set; } = String.Empty;
 
-        public string Category { get; set; }
-
-        public AppUser Contributor { get; set; }
+        public AppUser? Contributor { get; set; }
+        
+        [StringLength(2)]
+        public string CategoryId { get; set; } = String.Empty;
+        public Category? Category { get; set; }
 
         public DateTime SubmissionDate { get; set; }
 
