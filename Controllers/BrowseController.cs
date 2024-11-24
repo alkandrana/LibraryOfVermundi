@@ -1,17 +1,30 @@
+using LibraryOfVermundi.Data;
 using Microsoft.AspNetCore.Mvc;
+using LibraryOfVermundi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryOfVermundi.Controllers;
 
 public class BrowseController : Controller
 {
+    private AppDbContext _context;
+
+    public BrowseController(AppDbContext ctx)
+    {
+        _context = ctx;
+    }
     // GET
     public IActionResult Index()
     {
-        return View();
-    }
+        var categories = _context.Entries.Include(
+            e => e.Category).ToList();
 
-    public IActionResult Topics()
+        return View(categories);
+    }
+    [HttpGet]
+    public IActionResult Reader(int id)
     {
-        return View();
+        Entry? model = _context.Entries.Find(id);
+        return View(model);
     }
 }

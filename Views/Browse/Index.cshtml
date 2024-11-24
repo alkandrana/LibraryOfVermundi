@@ -1,11 +1,46 @@
+@model List<Entry>
 @{
     ViewData["Title"] = "Browse the Library";
 }
 
 <div>
     <h1 class="text-center">Browse the Library</h1>
-    <p class="dataDisplay">
+    <p class="pb-5 pt-5 dataDisplay divider" style="border-bottom: 5px solid black; max-width: 75%">
         Use the topics below to browse the contents of the Library. Each topic toggles to reveal the specific articles 
         contained in that category. Follow the links to review a specific article.
     </p>
+</div>
+
+<div class="container pt-5">
+    <div class="row">
+        @if (Model.Count > 0)
+        {
+            List<int> seen = new List<int>();
+            for (int i = 0; i < Model.Count; i++)
+            {
+                if (!seen.Contains(i))
+                {
+                    <details class="col-3 p-5 dataDisplay">
+                        <summary>
+                            @Model[i].Category.Name
+                        </summary>
+                        <p>
+                            <a asp-action="Reader" asp-controller="Browse" asp-route-id="@Model[i].EntryId">@Model[i].Title</a>
+                        </p>
+                        @for (int j = i + 1; j < Model.Count; j++)
+                        {
+                            if (Model[j].CategoryId == Model[i].CategoryId)
+                            {
+                                <p>
+                                    <a asp-action="Reader" asp-controller="Browse" asp-route-id="@Model[j].EntryId">@Model[j].Title</a>
+                                </p>
+                                seen.Add(j);
+                            }
+                        }
+                    </details>
+                }
+                
+            }
+        }
+    </div>
 </div>
