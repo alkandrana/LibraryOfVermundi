@@ -16,26 +16,20 @@
                 <a asp-action="Search" asp-controller="Search" class="text-center p-2 text-light">Search</a>
             </li>
             <li>
-                <h5 class="text-center">Featured Article:</h5>
+                <h4 class="text-center">Featured Article:</h4>
                 @if (Model.RawContent != "")
                 {
-                    <h3 class="text-center mt-5">@Model.Title</h3>
-                    @for (int i = 0; i <= 5 && i < Model.Content.Length; i++)
-                    {
-                        if (Model.Content[i].Length < 100)
+                    <h5 class="text-center mt-5">@Model.Title</h5>
+                        if (Model.Content[0].Length < 100)
                         {
-                            <h6 class="pt-5">@Model.Content[i]</h6>
+                            <h6 class="pt-5 fw-bold">@Model.Content[0]</h6>
+                            <p class="px-3 fst-italic">@Model.Content[1]</p>
                         }
                         else
                         {
-                            <div>@Model.Content[i]</div>
+                            <p class="px-3 fst-italic">@Model.Content[0]</p>
                         }
-                    }
-                }
-                else
-                {
-                    <p>Have a story to contribute?</p>
-                    <a asp-controller="Search" asp-action="ContributionForm" class="btn btn-success">Contribution Form</a>
+                        <a asp-action="SearchReader" asp-controller="Search" asp-route-id="@Model.EntryId">Read more...</a>
                 }
             </li>
         </ul>
