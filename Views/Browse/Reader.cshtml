@@ -1,15 +1,15 @@
 @model Entry
 
 @{
-    Layout = null;
+    ViewData["Title"] = @Model.Title;
 }
 
-<h1>@Model.Title</h1>
+<h1 class="text-center p-5">@Model.Title</h1>
 
 <div>
       @foreach (string sentence in Model.Content)
       {
-          if (sentence.Length < 100)
+          if (sentence.Length < 60)
           {
               <h3 class="dataDisplay">@sentence</h3>
           }

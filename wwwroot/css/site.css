@@ -1,6 +1,7 @@
 body {
-    background-color: #400020;
-    /* background-image: url("../pics/peter-herrmann-library.jpg"); */
+    /*background-color: #400020;*/
+    background-image: url("../pics/peter-herrmann-library.jpg");
+    background-repeat: round;
 }
 
 .dataDisplay {
@@ -11,4 +12,25 @@ body {
 
 .divider {
     border-bottom: 5px solid black;
+}
+
+.navigation {
+    background-color: #400020;
+}
+
+.navigation li {
+    border: 3px outset black;
+}
+
+.navigation li:active {
+    border: 3px inset black;
+}
+
+.navigation li a {
+    display: block;
+    text-decoration: none;
+}
+
+.main {
+    background-color: rgba(0, 0, 0, 0.5);
 }
