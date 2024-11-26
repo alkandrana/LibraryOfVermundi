@@ -1,0 +1,31 @@
+@model Entry?
+
+@{
+  ViewData["Title"] = "Reading Page";
+}
+    
+<div>
+  @if (Model == null)
+  {
+    <h6>
+      It appears that we don't have an article corresponding to that search term.
+      Would you like to submit one?
+    </h6>
+    <a asp-action="ContributionForm" asp-controller="Search">Contribution Form</a>
+  }
+  else
+  {
+    <h3 class="text-center p-5">@Model.Title</h3>
+    @foreach (string sentence in Model.Content)
+    {
+      if (sentence.Length < 75)
+      {
+        <h3 class="dataDisplay pt-3">@sentence</h3>
+      }
+      else
+      {
+        <p class="dataDisplay">@sentence</p>
+      }    
+    }
+  }
+</div>
