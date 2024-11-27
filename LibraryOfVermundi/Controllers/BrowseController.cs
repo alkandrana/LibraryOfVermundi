@@ -16,7 +16,7 @@ public class BrowseController : Controller
     // GET
     public IActionResult Index()
     {
-        var categories = _repo.GetAllEntries();
+        var categories = _repo.GetAllCategories();
 
         return View(categories);
     }

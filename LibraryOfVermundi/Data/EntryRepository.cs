@@ -38,6 +38,9 @@ public class EntryRepository : IEntryRepository
 
     public List<Category> GetAllCategories()
     {
-        return _context.Categories.ToList();
+        var categories = _context.Categories.Include(   // I'm kind of proud of this code, 
+            c => c.Entries).OrderByDescending( // which I figured out after 
+            c => c.Entries.Count).ToList(); // reading the textbook chapter on LINQ in Week 9...
+        return categories;
     }
 }

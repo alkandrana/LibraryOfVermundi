@@ -1,4 +1,4 @@
-@model List<Entry>
+@model List<Category>
 @{
     ViewData["Title"] = "Browse the Library";
 }
@@ -14,6 +14,19 @@
 <div class="container pt-5">
     <div class="row dataDisplay">
         @if (Model.Count > 0)
+        {
+            foreach (Category c in Model)
+            {
+                <details class="col-4 p-3">
+                    <summary class="p-1" style="font-size: x-large; font-weight: bolder">@c.Name</summary>
+                    @foreach (Entry e in c.Entries)
+                    {
+                        <p><a asp-action="Reader" asp-controller="Browse" asp-route-id="@e.EntryId">@e.Title</a></p>
+                    }
+                </details>
+            }
+        }
+        @*@if (Model.Count > 0)
         {
             List<int> seen = new List<int>();
             for (int i = 0; i < Model.Count; i++)
@@ -45,6 +58,6 @@
                 }
                 
             }
-        }
+        }*@
     </div>
 </div>

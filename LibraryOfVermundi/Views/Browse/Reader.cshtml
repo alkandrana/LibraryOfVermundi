@@ -9,9 +9,13 @@
 <div>
       @foreach (string sentence in Model.Content)
       {
-          if (sentence.Length < 60)
+          if (sentence.StartsWith("**"))
           {
-              <h3 class="dataDisplay pt-3">@sentence</h3>
+              <h6 class="dataDisplay pt-3">@sentence.Substring(2, sentence.Length - 4)</h6>
+          }
+          else if (sentence.Length < 60)
+          {
+              <h4 class="dataDisplay pt-3">@sentence</h4>
           }
           else
           {

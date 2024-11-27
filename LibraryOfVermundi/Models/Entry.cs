@@ -22,6 +22,11 @@ namespace LibraryOfVermundi.Models
         public DateTime SubmissionDate { get; set; }
 
         public bool Protected => RawContent.Contains("demon");
+
+        public void FormatContent()
+        {
+            RawContent = RawContent.Replace("**", "\n");
+        }
     }
     
 }
