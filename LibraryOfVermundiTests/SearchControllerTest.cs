@@ -1,3 +1,4 @@
+using LibraryOfVermundi.Data;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
@@ -7,6 +8,8 @@ public class SearchControllerTest
 {
     private Entry _entry = new Entry();
     private ITestOutputHelper _output;
+    private SearchController _controller;
+    private IEntryRepository _repo = new FakeEntryRepository();
 
     public SearchControllerTest(ITestOutputHelper output)
     {
@@ -19,6 +22,11 @@ public class SearchControllerTest
         _entry.Category = new Category { CategoryId = "H", Name = "History" };
         _entry.SubmissionDate = DateTime.Parse("2021-10-16");
         _entry.Contributor = new AppUser { AppUserId = 1, UserName = "vratha" };
+        
+        // controller
+
+        _controller = new SearchController(_repo);
+        _repo.StoreEntry(_entry);
     }
 
     [Fact]
@@ -26,13 +34,12 @@ public class SearchControllerTest
     {
         int i = 0;
         string outString = "This is a test.";
-        for (; i < 1 && i < _entry.Content.Length; i++)// okay, so my for loop isn't working 
+        for (; i < 1 && i < _entry.Content.Length; i++)// okay, so my for loop wasn't working 
         {   // the way I expected because the unit in the Content array is a PARAGRAPH, 
             // not a sentence!
             _output.WriteLine(i + ": " + _entry.Content[i] + "\n");
         }
         Assert.Equal(1, i);
-
-
     }
+    
 }

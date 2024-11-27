@@ -16,20 +16,20 @@
                 <a asp-action="Search" asp-controller="Search" class="text-center p-2 text-light">Search</a>
             </li>
             <li>
-                <h4 class="text-center">Featured Article:</h4>
+                <h5 class="text-center">Featured Article:</h5>
                 @if (Model.RawContent != "")
                 {
-                    <h5 class="text-center mt-5">@Model.Title</h5>
+                    <h5 class="text-center">@Model.Title</h5>
                         if (Model.Content[0].Length < 100)
                         {
                             <h6 class="pt-5 fw-bold">@Model.Content[0]</h6>
-                            <p class="px-3 fst-italic">@Model.Content[1]</p>
+                            <p class="px-3 mb-0 fst-italic">@Model.Content[1]</p>
                         }
                         else
                         {
-                            <p class="px-3 fst-italic">@Model.Content[0]</p>
+                            <p class="px-3 mb-0 fst-italic">@Model.Content[0]</p>
                         }
-                        <a asp-action="SearchReader" asp-controller="Search" asp-route-id="@Model.EntryId">Read more...</a>
+                        <a class="px-3 text-end" asp-action="Reader" asp-controller="Browse" asp-route-id="@Model.EntryId">Read more...</a>
                 }
             </li>
         </ul>
@@ -40,7 +40,6 @@
                 or contribute an entry to the Library's vaults.
             </h5>
             <div>
-                
             </div>
         </div>
     </div>

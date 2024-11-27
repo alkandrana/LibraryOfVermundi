@@ -7,19 +7,19 @@ namespace LibraryOfVermundi.Controllers;
 
 public class SearchController : Controller
 {
-    private AppDbContext _context;
+    private IEntryRepository _repo;
 
-    public SearchController(AppDbContext ctx)
+    public SearchController(IEntryRepository r)
     {
-        _context = ctx;
+        _repo = r;
     }
     // GET
     public IActionResult Index()
     {
         Random gen = new Random();
-        int max = _context.Entries.Count();
+        int max = _repo.GetAllEntries().Count();
         int id = gen.Next(1, max + 1);
-        Entry model = _context.Entries.Find(id);
+        Entry? model = _repo.GetEntryById(id);
         return View(model);
     }
 
@@ -27,25 +27,28 @@ public class SearchController : Controller
     {
         return View();
     }
-
+    // Search function
     public IActionResult SearchReader(string key)
     {
-        Entry? model = _context.Entries.FirstOrDefault(e => e.Title.Contains(key));
+        var model = _repo.GetEntryByTitle(key);
         return View(model);
     }
     
     public IActionResult ContributionForm()
     {
-        ViewBag.Categories = _context.Categories.OrderBy(c => c.Name).ToList();
+        ViewBag.Categories = _repo.GetAllCategories();
         return View();
     }
 
     [HttpPost]
     public IActionResult ContributionForm(Entry model)
     {
-        model.SubmissionDate = DateTime.Now;
-        _context.Entries.Add(model);
-        _context.SaveChanges();
-        return RedirectToAction("Index");
+        if(_repo.StoreEntry(model) > 0)
+        {
+            return RedirectToAction("Index");
+        }
+
+        ViewBag.ErrorMessage = "There was a problem submitting your entry.";
+        return View();
     }
 }

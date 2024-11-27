@@ -7,24 +7,23 @@ namespace LibraryOfVermundi.Controllers;
 
 public class BrowseController : Controller
 {
-    private AppDbContext _context;
+    private IEntryRepository _repo;
 
-    public BrowseController(AppDbContext ctx)
+    public BrowseController(IEntryRepository r)
     {
-        _context = ctx;
+        _repo = r;
     }
     // GET
     public IActionResult Index()
     {
-        var categories = _context.Entries.Include(
-            e => e.Category).ToList();
+        var categories = _repo.GetAllEntries();
 
         return View(categories);
     }
     [HttpGet]
     public IActionResult Reader(int id)
     {
-        Entry? model = _context.Entries.Find(id);
+        Entry? model = _repo.GetEntryById(id);
         return View(model);
     }
 }

@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+builder.Services.AddTransient<IEntryRepository, EntryRepository>();
+
 var app = builder.Build();
 
 //Configure the HTTP request pipeline
