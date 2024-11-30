@@ -24,6 +24,12 @@ public class FakeEntryRepository : IEntryRepository
         return status;
     }
 
+    public int UpdateEntry(Entry model) //PLACEHOLDER
+    {
+        int status = 0;
+        return status;
+    }
+
     public Entry? GetEntryByTitle(string search)
     {
         foreach (var entry in _entries)
@@ -37,7 +43,7 @@ public class FakeEntryRepository : IEntryRepository
         return null;
     }
 
-    public List<Category> GetAllCategories()
+    public List<Category> GetAllCategories(string mode)
     {
         List<Category> categories = new List<Category>();
         foreach (Entry e in _entries)
@@ -47,8 +53,20 @@ public class FakeEntryRepository : IEntryRepository
         return categories;
     }
 
+    public List<AppUser> GetAllUsers()
+    {
+        List<AppUser> users = new List<AppUser>();
+        foreach (Entry e in _entries)
+        {
+            users.Add(e.Contributor);
+        }
+        return users;
+    }
+
     public List<Entry> GetAllEntries()
     {
         return _entries;
     }
+    
+    
 }

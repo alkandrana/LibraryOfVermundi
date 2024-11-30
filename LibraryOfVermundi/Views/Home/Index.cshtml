@@ -1,12 +1,20 @@
 @{
     ViewData["Title"] = "The Library of Vermundi";
 }
-
-
-<h1 class="display-4 text-light text-center">The Library of Vermundi</h1>
-<p class="text-light text-center fst-italic">Welcome to the Library of Vermundi, a comprehensive collection of the most 
-    controversial information in the Empire.</p>
-<div>
-    @*<img class="d-block w-100" alt="library" src="pics/peter-herrmann-library.jpg">*@
+<div class="container-fluid navbar navbar-left dataDisplay">
+    <div class="row">
+        <ul class="list-unstyled col-md-3 navigation p-0 m-0">
+            <li class="bg-dark">
+                <a asp-action="Index" asp-controller="Home" class="text-center p-2 text-light">Home</a>
+            </li>
+        </ul>
+        <div class="col-md-9 main ms-0">
+            <h1 class="display-4 text-light text-center">The Library of Vermundi</h1>
+            <p class="text-light text-center fst-italic p-5">Welcome to the Library of Vermundi, a comprehensive collection of the most
+                controversial information in the Empire.</p>
+            <div>
+                @*<img class="d-block w-100" alt="library" src="pics/peter-herrmann-library.jpg">*@
+            </div>
+        </div>
+    </div>
 </div>
-

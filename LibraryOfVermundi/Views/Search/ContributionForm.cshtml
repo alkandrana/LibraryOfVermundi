@@ -5,6 +5,7 @@
 
 <h1 class="display-4">Contribution Form</h1>
 <form method="post" class="container">
+    <span>@ViewBag.ErrorMessage</span>
     <div class="row p-2">
         <label asp-for="CategoryId" class="col-form-label col-md-2 mb-3">Category</label>
         <div class="col-md-2">
@@ -27,7 +28,7 @@
     <div class="row p-2">
         <label for="content" class="col-form-label col-md-2 mb-3">Content</label>
         <div class="col-md-8">
-            <textarea id="content" name="RawContent" class="form-control bg-dark-subtle"></textarea>
+            <textarea id="content" name="RawContent" class="form-control bg-dark-subtle" rows="15"></textarea>
         </div>
     </div>
     <div class="row p-2">

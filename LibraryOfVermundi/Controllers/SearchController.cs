@@ -36,7 +36,7 @@ public class SearchController : Controller
     
     public IActionResult ContributionForm()
     {
-        ViewBag.Categories = _repo.GetAllCategories();
+        ViewBag.Categories = _repo.GetAllCategories("simple");
         return View();
     }
 

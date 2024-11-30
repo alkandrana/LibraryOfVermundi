@@ -15,9 +15,9 @@ namespace LibraryOfVermundi.Models
         public AppUser? Contributor { get; set; }
         
         [StringLength(2)]
-        public string CategoryId { get; set; } = String.Empty;
+        public string? CategoryId { get; set; }
 
-        public Category Category { get; set; } = new Category();
+        public Category? Category { get; set; }
 
         public DateTime SubmissionDate { get; set; }
 

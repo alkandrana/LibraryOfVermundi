@@ -3,23 +3,30 @@
 @{
     ViewData["Title"] = @Model.Title;
 }
-
-<h1 class="text-center p-5">@Model.Title</h1>
-
-<div>
-      @foreach (string sentence in Model.Content)
-      {
-          if (sentence.StartsWith("**"))
-          {
-              <h6 class="dataDisplay pt-3">@sentence.Substring(2, sentence.Length - 4)</h6>
-          }
-          else if (sentence.Length < 60)
-          {
-              <h4 class="dataDisplay pt-3">@sentence</h4>
-          }
-          else
-          {
-              <p class="dataDisplay">@sentence</p>
-          }
-      }
+<div class="container-fluid navbar navbar-left dataDisplay">
+    <div class="row">
+        <ul class="list-unstyled col-3 navigation p-0 m-0">
+            <li class="bg-dark">
+                <a asp-action="Index" asp-controller="Browse" class="text-center p-2 text-light">Browse</a>
+            </li>
+        </ul>
+        <div class="col-md-9 main ms-0">
+            <h1 class="text-center p-5">@Model.Title</h1>
+            @foreach (string sentence in Model.Content)
+            {
+                if (sentence.StartsWith("**"))
+                {
+                    <h6 class="dataDisplay pt-3">@sentence.Substring(2, sentence.Length - 4)</h6>
+                }
+                else if (sentence.Length < 60)
+                {
+                    <h4 class="dataDisplay pt-3">@sentence</h4>
+                }
+                else
+                {
+                    <p class="dataDisplay">@sentence</p>
+                }
+            }
+        </div>
+    </div>
 </div>
