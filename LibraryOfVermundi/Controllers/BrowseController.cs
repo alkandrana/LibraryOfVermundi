@@ -30,8 +30,10 @@ public class BrowseController : Controller
     public IActionResult Edit(int id)
     {
         List<Category> categories = _repo.GetAllCategories("simple");
+        List<AppUser> contributors = _repo.GetAllUsers();
         Entry entry = _repo.GetEntryById(id);
         ViewBag.Categories = categories;
+        ViewBag.Contributors = contributors;
         return View("Editor", entry);
     }
 

@@ -19,6 +19,18 @@
         </div>
     </div>
     <div class="row p-2">
+        <label asp-for="ContributorId" class="col-form-label col-md-2 mb-3">Contributor</label>
+        <div class="col-md-2">
+            <select asp-for="ContributorId" class="form-select">
+                <option value="">select a persona</option>
+                @foreach (AppUser u in ViewBag.Contributors)
+                {
+                <option value="@u.AppUserId">@u.UserName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row p-2">
         <label for="title" class="col-form-label col-md-2 mb-3">Title</label>
         <div class="col-md-8">
             <input id="title" name="Title" class="form-control bg-dark-subtle">
@@ -29,12 +41,6 @@
         <label for="content" class="col-form-label col-md-2 mb-3">Content</label>
         <div class="col-md-8">
             <textarea id="content" name="RawContent" class="form-control bg-dark-subtle" rows="15"></textarea>
-        </div>
-    </div>
-    <div class="row p-2">
-        <label for="name" class="col-form-label col-md-2 mb-3">User Name</label>
-        <div class="col-md-8">
-            <input id="name" name="Contributor.UserName" class="form-control bg-secondary-subtle">
         </div>
     </div>
     <div class="row p-2 offset-8">

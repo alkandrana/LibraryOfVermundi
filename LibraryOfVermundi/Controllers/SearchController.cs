@@ -17,7 +17,8 @@ public class SearchController : Controller
     public IActionResult Index()
     {
         Random gen = new Random();
-        int max = _repo.GetAllEntries().Count();
+        List<Entry> entries = _repo.GetAllEntries();
+        int max = entries.Count();
         int id = gen.Next(1, max + 1);
         Entry? model = _repo.GetEntryById(id);
         return View(model);
@@ -36,6 +37,7 @@ public class SearchController : Controller
     
     public IActionResult ContributionForm()
     {
+        ViewBag.Contributors = _repo.GetAllUsers();
         ViewBag.Categories = _repo.GetAllCategories("simple");
         return View();
     }

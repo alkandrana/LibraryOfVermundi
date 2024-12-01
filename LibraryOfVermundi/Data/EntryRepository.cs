@@ -13,8 +13,8 @@ public class EntryRepository : IEntryRepository
     }
     public List<Entry> GetAllEntries()
     {
-        return _context.Entries.Include(e => e.Category).Include(
-            e => e.Contributor).ToList();
+        return _context.Entries.Include(e => e.Contributor).Include(
+            e => e.Category).ToList();
     }
 
     public List<AppUser> GetAllUsers()

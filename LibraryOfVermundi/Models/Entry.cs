@@ -11,22 +11,19 @@ namespace LibraryOfVermundi.Models
 
         [StringLength(100)]
         public string Title { get; set; } = String.Empty;
+        
+        public int ContributorId { get; set; }
 
         public AppUser? Contributor { get; set; }
         
         [StringLength(2)]
-        public string? CategoryId { get; set; }
+        public string CategoryId { get; set; }
 
         public Category? Category { get; set; }
 
         public DateTime SubmissionDate { get; set; }
 
-        public bool Protected => RawContent.Contains("demon");
-
-        public void FormatContent()
-        {
-            RawContent = RawContent.Replace("**", "\n");
-        }
+        public bool Protected { get; set; }
     }
     
 }
