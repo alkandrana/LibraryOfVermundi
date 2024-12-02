@@ -70,4 +70,10 @@ public class EntryRepository : IEntryRepository
         }
         return categories;
     }
+
+    public List<Entry> GetEntriesByCategory(string category)
+    {
+        List<Entry> entries =  _context.Entries.Where(e => e.CategoryId == category).ToList();
+        return entries;
+    }
 }

@@ -16,5 +16,7 @@ public interface IEntryRepository
     
     public List<Category> GetAllCategories(string mode);
     
+    public List<Entry> GetEntriesByCategory(string category);
+    
     public int UpdateEntry(Entry model);
 }

@@ -65,6 +65,18 @@ public class FakeEntryRepository : IEntryRepository
         return categories;
     }
 
+    public List<Entry> GetEntriesByCategory(string category)
+    {
+        List<Entry> entriesByCat = new List<Entry>();
+        foreach (Entry e in _entries)
+        {
+            if (e.CategoryId == category)
+            {
+                entriesByCat.Add(e);
+            }
+        }
+        return entriesByCat;
+    }
     public List<AppUser> GetAllUsers()
     {
         List<AppUser> users = new List<AppUser>();

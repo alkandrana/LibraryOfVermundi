@@ -1,0 +1,20 @@
+@model Category
+
+@{
+    ViewData["Title"] = "Trivia Game";
+}
+
+<div>
+    Let's play a trivia game.<br/>
+    Pick a topic:
+    <form method="post" class="border-bottom">
+        <select asp-for="CategoryId">
+            <option value="">select a topic</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.Name</option>
+            }
+        </select>
+    </form>
+    
+</div>
