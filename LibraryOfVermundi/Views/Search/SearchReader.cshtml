@@ -3,29 +3,44 @@
 @{
   ViewData["Title"] = "Reading Page";
 }
-    
-<div>
-  @if (Model == null)
-  {
-    <h6>
-      It appears that we don't have an article corresponding to that search term.
-      Would you like to submit one?
-    </h6>
-    <a asp-action="ContributionForm" asp-controller="Search">Contribution Form</a>
-  }
-  else
-  {
-    <h3 class="text-center p-5">@Model.Title</h3>
-    @foreach (string sentence in Model.Content)
-    {
-      if (sentence.Length < 75)
+<div class="navbar navbar-left dataDisplay container">
+  <div class="row">
+    <ul class="list-unstyled col-md-3 navigation p-0 m-0">
+      <li class="bg-dark">
+        <a asp-action="Index" asp-controller="Search" class="text-center p-2 text-light">Search</a>
+      </li>
+      <li class="bg-dark">
+        <a asp-action="ContributionForm" asp-controller="Search" class="text-center p-2 text-light">Contribution Form</a>
+      </li>
+    </ul>
+    <div class="col-md-9 main">
+      @if (Model == null)
       {
-        <h3 class="dataDisplay pt-3">@sentence</h3>
+        <h6>
+          It appears that we don't have an article corresponding to that search term.
+          Would you like to submit one?
+        </h6>
+        <a asp-action="ContributionForm" asp-controller="Search">Contribution Form</a>
       }
       else
       {
-        <p class="dataDisplay">@sentence</p>
-      }    
-    }
-  }
+        <h3 class="text-center p-5">@Model.Title</h3>
+        @foreach (string sentence in Model.Content)
+        {
+          if (sentence.StartsWith("**"))
+          {
+            <h5>@sentence.Substring(2, sentence.Length - 5)</h5>
+          }
+          else if (sentence.Length < 100)
+          {
+            <h3 class="p-3">@sentence</h3>
+          }
+          else
+          {
+            <p>@sentence</p>
+          }
+        }
+      }
+    </div>
+  </div>
 </div>

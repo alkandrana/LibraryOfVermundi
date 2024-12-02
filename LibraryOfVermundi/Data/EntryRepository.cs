@@ -36,6 +36,13 @@ public class EntryRepository : IEntryRepository
         return _context.SaveChanges();
     }
 
+    public int StoreAppUser(AppUser model)
+    {
+        model.SignUpDate = DateTime.Now;
+        _context.AppUsers.Add(model);
+        return _context.SaveChanges();
+    }
+
     public int UpdateEntry(Entry model)
     {
         _context.Entries.Update(model);

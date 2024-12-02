@@ -16,15 +16,15 @@
             {
                 if (sentence.StartsWith("**"))
                 {
-                    <h6 class="dataDisplay pt-3">@sentence.Substring(2, sentence.Length - 4)</h6>
+                    <h5 class="p-3">@sentence.Substring(2, sentence.Length - 5)</h5>
                 }
                 else if (sentence.Length < 60)
                 {
-                    <h4 class="dataDisplay pt-3">@sentence</h4>
+                    <h4 class="p-3">@sentence</h4>
                 }
                 else
                 {
-                    <p class="dataDisplay">@sentence</p>
+                    <p>@sentence</p>
                 }
             }
         </div>

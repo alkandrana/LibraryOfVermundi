@@ -53,4 +53,20 @@ public class SearchController : Controller
         ViewBag.ErrorMessage = "There was a problem submitting your entry.";
         return View();
     }
+
+    public IActionResult Register()
+    {
+        return View("NewUser");
+    }
+
+    [HttpPost]
+    public IActionResult Register(AppUser model)
+    {
+        if (_repo.StoreAppUser(model) > 0)
+        {
+            return RedirectToAction("ContributionForm");
+        }
+        ViewBag.ErrorMessage = "There was a problem submitting your profile.";
+        return View("NewUser", model);
+    }
 }

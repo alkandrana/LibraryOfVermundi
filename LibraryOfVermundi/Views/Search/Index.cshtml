@@ -16,9 +16,11 @@
                 <a asp-action="Search" asp-controller="Search" class="text-center p-2 text-light">Search</a>
             </li>*@
             <li>
-                <form asp-action="SearchReader" asp-controller="Search">
-                    <input type="text" placeholder="Enter a title, keyword, topic, etc..." name="key">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form asp-action="SearchReader" asp-controller="Search" class="container">
+                    <div class="row">
+                        <input type="text" placeholder="Enter a title, keyword, topic, etc..." name="key" class="col-md-10">
+                        <button type="submit" class="col-md-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
                 </form>
             </li>
         </ul>

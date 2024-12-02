@@ -10,6 +10,7 @@ public interface IEntryRepository
     public Entry? GetEntryById(int id);
 
     public int StoreEntry(Entry model);
+    public int StoreAppUser(AppUser model);
 
     public Entry? GetEntryByTitle(string search);
     

@@ -5,6 +5,7 @@ namespace LibraryOfVermundi.Data;
 public class FakeEntryRepository : IEntryRepository
 {
     private List<Entry> _entries = new List<Entry>();
+    private List<AppUser> _users = new List<AppUser>();
 
     public Entry? GetEntryById(int id)
     {
@@ -21,6 +22,17 @@ public class FakeEntryRepository : IEntryRepository
             status = 1;
         }
 
+        return status;
+    }
+
+    public int StoreAppUser(AppUser model)
+    {
+        int status = 0;
+        if (model != null)
+        {
+            model.AppUserId = _users.Count + 1;
+            _users.Add(model);
+        }
         return status;
     }
 
