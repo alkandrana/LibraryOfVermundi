@@ -3,7 +3,7 @@ namespace LibraryOfVermundi;
 
 public class Question
 {
-    private List<string> creatures = new List<string>() { "The Tower", "An Ustor", "A Demon", "A Watcher" };
+    private List<string> creatures = new List<string>() { "The Tower", "An Ustor", "Ustores", "A Demon", "Demons", "A Watcher", "Watchers" };
     public Question(Entry entry)
     {
         Source = entry;
@@ -96,11 +96,9 @@ public class Question
                     {
                         return "Name the point of origin of " + c;
                     }
-                    else
-                    {
-                        return "What was " + Source.Title + " known for?";
-                    }
                 }
+
+                q = "What was " + Source.Title + " known for?";
                 break;
             case ("H"):
                 List<string> eras = new List<string>{"first", "second", "third", "fourth"};

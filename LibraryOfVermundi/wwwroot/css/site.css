@@ -20,6 +20,12 @@ details:active {
     margin-right: auto;
 }
 
+#quiz {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .divider {
     border-bottom: 5px solid black;
 }

@@ -13,15 +13,6 @@
             <li class="bg-dark">
                 <a asp-action="ContributionForm" asp-controller="Search" class="text-center p-2 text-light">Contribution Form</a>
             </li>
-            @*<li class="bg-dark">
-                <a asp-action="Search" asp-controller="Search" class="text-center p-2 text-light">Search</a>
-            </li>*@
-            <li>
-                <form asp-action="SearchReader" asp-controller="Search">
-                    <input type="text" placeholder="Enter a title, keyword, topic, etc..." name="key">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </li>
         </ul>
         <div class="col-md-9 main">
             <h2 class="p-5">Add a New User Profile</h2>

@@ -7,7 +7,7 @@ namespace LibraryOfVermundi.Models
         public int EntryId { get; set; }
         public string RawContent { get; set; } = "";
 
-        public string[] Content => RawContent.Split('\n');
+        public string[] Content => RawContent.Split('\n');  // facilitates displaying the entries on the page
 
         [StringLength(100)]
         public string Title { get; set; } = String.Empty;

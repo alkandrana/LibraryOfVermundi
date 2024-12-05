@@ -4,10 +4,10 @@ namespace LibraryOfVermundi.Models;
 
 public class Category
 {
-    public Category()
+    /*public Category()
     {
         Entries = new HashSet<Entry>();
-    }
+    }*/
     [StringLength(2)]
     public string CategoryId { get; set; } = string.Empty;
     

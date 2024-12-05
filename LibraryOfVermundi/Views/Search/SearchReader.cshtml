@@ -16,11 +16,12 @@
     <div class="col-md-9 main">
       @if (Model == null)
       {
-        <h6>
+        <h1 class="fst-italic p-5">Welcome to the Reader</h1>
+        <h6 class="p-5 fst-italic fs-3 lh-lg">
           It appears that we don't have an article corresponding to that search term.
           Would you like to submit one?
         </h6>
-        <a asp-action="ContributionForm" asp-controller="Search">Contribution Form</a>
+        <a asp-action="ContributionForm" asp-controller="Search" class="m-5 btn btn-danger form-control">Contribution Form</a>
       }
       else
       {
