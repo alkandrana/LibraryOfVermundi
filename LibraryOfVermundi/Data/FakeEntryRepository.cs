@@ -6,10 +6,16 @@ public class FakeEntryRepository : IEntryRepository
 {
     private List<Entry> _entries = new List<Entry>();
     private List<AppUser> _users = new List<AppUser>();
+    private List<Category> _categories = new List<Category>();
 
     public Entry? GetEntryById(int id)
     {
         return _entries.Find(r => r.EntryId == id);
+    }
+
+    public Category? GetCategoryById(string id)
+    {
+        return _categories.Find(r => r.CategoryId == id);
     }
 
     public int StoreEntry(Entry model)

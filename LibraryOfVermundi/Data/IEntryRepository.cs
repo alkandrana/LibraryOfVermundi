@@ -8,6 +8,7 @@ public interface IEntryRepository
     public List<AppUser> GetAllUsers();
     
     public Entry? GetEntryById(int id);
+    public Category? GetCategoryById(string id);
 
     public int StoreEntry(Entry model);
     public int StoreAppUser(AppUser model);

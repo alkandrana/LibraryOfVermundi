@@ -19,29 +19,36 @@ namespace LibraryOfVermundi.Controllers
         }
 
         public IActionResult Trivia()
-        {
-            List<Category> categories = _repo.GetAllCategories("simple");
-            ViewBag.Categories = categories;
-            return View();
+        {   // For each category, generate a random number and use it to select an
+            // article from that category to base one of the five questions on
+            Random gen = new Random();
+            List<Entry> entries = _repo.GetAllEntries();
+            List<string> categories = entries.Select(c => c.CategoryId).Distinct().ToList();
+            QuizVM model = new QuizVM();
+            foreach (string id in categories)
+            {
+                List<Entry> source = entries.Where(e => e.CategoryId == id).ToList();
+                int max = source.Count;
+                int select = gen.Next(0, max);
+                Question q = new Question(source[select]);
+                q.Query = q.MakeQuestion();
+                model.Questions.Add(q);
+            }
+            
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Trivia(Category category)
+        public IActionResult Trivia(QuizVM model, string[] answer, int[] id, string[] query)
         {
-            if (category.CategoryId == "B")
+            for (int i = 0; i < answer.Length; i++)
             {
-                List<Entry> biographies = _repo.GetEntriesByCategory("B");
-                List<string> dynasts = new List<string>();
-                foreach (Entry b in biographies)
-                {
-                    dynasts.Add("Name the era of " + b.Title.Substring(0, b.Title.IndexOf(" ")));
-                }
+                Entry source = _repo.GetEntryById(id[i]);
+                model.Questions.Add(new Question(source));
+                model.Questions[i].UserAnswer = answer[i];
+                model.Questions[i].Query = query[i];
             }
-            return View();
+            return View(model);
         }
-
-        
-
-
     }
 }

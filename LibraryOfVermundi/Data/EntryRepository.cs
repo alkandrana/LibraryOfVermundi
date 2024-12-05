@@ -28,6 +28,12 @@ public class EntryRepository : IEntryRepository
             e => e.Category).SingleOrDefault(e => e.EntryId == id);
         return entry;
     }
+
+    public Category? GetCategoryById(string id)
+    {
+        var category = _context.Categories.Find(id);
+        return category;
+    }
  
     public int StoreEntry(Entry model)
     {
