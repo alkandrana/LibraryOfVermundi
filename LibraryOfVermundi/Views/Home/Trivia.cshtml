@@ -1,0 +1,45 @@
+@using System.Numerics
+@using Microsoft.EntityFrameworkCore
+@model QuizVM
+
+@{
+    ViewData["Title"] = "Trivia Game";
+}
+<div class="container-fluid navbar navbar-left" id="quiz">
+    <div class="row m-0">
+        <ul class="list-unstyled col-md-3 navigation p-0 m-0">
+            <li class="bg-dark m-3">
+                <a asp-action="Index" asp-controller="Home" class="text-center p-2 text-light">Home</a>
+            </li>
+            <li class="bg-dark m-3">
+                <a asp-action="Trivia" asp-controller="Home" class="text-center text-light p-2">Trivia Quiz</a>
+            </li>
+        </ul>
+        <div class="col-md-9 main text-light lh-lg p-0 m-0">
+            <h2>Test Your Knowledge</h2>
+            <form method="post" class="container">
+                @foreach (Question q in Model.Questions)
+                {
+                    <div class="row py-5">
+                        <label for="ans" class="col-md-6">@q.Query</label>
+                        <input type="text" id="ans" name="answer" value="@q.UserAnswer" class="col-md-2 bg-dark-subtle"/>
+                        <input type="hidden" name="id" value="@q.Source.EntryId"/>
+                        <input type="hidden" name="query" value="@q.Query"/>
+                        <button type="submit" class="col-md-2 ms-5 btn btn-info">Submit</button>
+                        @if (q.UserAnswer != null)
+                        {
+                            if (q.Correct)
+                            {
+                                <span class="col-md-1">Right</span>
+                            }
+                            else
+                            {
+                                <span class="col-md-1">Wrong</span>
+                            }
+                        }
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+@model Entry
+
+@{
+    ViewData["Title"] = "Editor";
+    Layout = "_Layout";
+}
+
+<h2>Editor</h2>
+<form method="post" asp-action="Edit" class="container">
+    <div class="row p-2">
+        <label asp-for="CategoryId" class="col-form-label col-md-2 mb-3">Topic</label>
+        <div class="col-md-8">
+            <select asp-for="CategoryId" class="form-select">
+                <option value="">select a topic</option>
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div>
+        <div class="row p-2">
+            <label asp-for="ContributorId" class="col-form-label col-md-2 mb-3">Contributor</label>
+            <div class="col-md-8">
+                <select asp-for="ContributorId" class="form-select">
+                    <option value="">select a persona</option>
+                    @foreach (AppUser u in ViewBag.Contributors)
+                    {
+                        <option value="@u.AppUserId">@u.UserName</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row p-2">
+        <label asp-for="Title" class="col-form-label col-md-2 mb-3">Title</label>
+        <div class="col-md-8">
+            <input asp-for="Title" class="form-control bg-dark-subtle"/>
+        </div>
+    </div>
+    <div class="row p-2">
+        <label asp-for="SubmissionDate" class="col-form-label col-md-2 mb-3">Submission Date</label>
+        <div class="col-md-8">
+            <input asp-for="SubmissionDate" class="form-control bg-dark-subtle"/>
+        </div>
+    </div>
+    <div class="row p-2">
+        <label asp-for="RawContent" class="col-form-label col-md-2 mb-3">Entry Text</label>
+        <div class="col-md-8">
+            <textarea asp-for="RawContent" class="form-control bg-info-subtle" rows="15"></textarea>
+        </div>
+    </div>
+    <div class="row p-2">
+        <label asp-for="Protected" class="col-form-label col-md-2 mb-3">Protected</label>
+        <div class="col-md-8">
+            <select asp-for="Protected" class="form-select">
+                <option value="">select an option</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" asp-for="EntryId">
+    <div class="offset-9">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" asp-controller="Browse" class="btn btn-danger">Cancel</a>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+body {
+    /*background-color: #400020;*/
+    background-image: url("../pics/peter-herrmann-library.jpg");
+    background-repeat: round;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+}
+
+details {
+    border: 3px outset rgb(94, 2, 76);
+    background-color: #2b0324;
+}
+
+details:active {
+    border: 3px inset rgb(94, 2, 76);
+}
+
+.dataDisplay {
+    max-width: 75%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#quiz {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divider {
+    border-bottom: 5px solid black;
+}
+
+.navigation {
+    background-color: #2b0324;
+}
+
+.navigation li {
+    border: 3px outset black;
+}
+
+.navigation li:active {
+    border: 3px inset black;
+}
+
+.navigation li a {
+    display: block;
+    text-decoration: none;
+}
+
+.main {
+    background-color: rgba(0, 0, 0, 0.5);
+}
