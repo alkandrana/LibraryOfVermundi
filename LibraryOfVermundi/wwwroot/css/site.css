@@ -24,6 +24,10 @@ details:active {
     width: 100%;
 }
 
+#quiz .main {
+    width: 80%;
+}
+
 .divider {
     border-bottom: 5px solid black;
 }
@@ -47,5 +51,4 @@ details:active {
 
 .main {
     background-color: rgba(0, 0, 0, 0.5);
-    width: 75%;
 }
