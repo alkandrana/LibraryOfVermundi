@@ -5,9 +5,9 @@
 @{
     ViewData["Title"] = "Trivia Game";
 }
-<div class="container-fluid navbar navbar-left" id="quiz">
-    <div class="row m-0">
-        <ul class="list-unstyled col-md-3 navigation p-0 m-0">
+<div class="container-fluid navbar navbar-left">
+    <div class="row m-0" id="quiz">
+        <ul class="list-unstyled col-md-2 navigation p-0 m-0">
             <li class="bg-dark m-3">
                 <a asp-action="Index" asp-controller="Home" class="text-center p-2 text-light">Home</a>
             </li>
@@ -21,11 +21,11 @@
                 @foreach (Question q in Model.Questions)
                 {
                     <div class="row py-5">
-                        <label for="ans" class="col-md-6">@q.Query</label>
-                        <input type="text" id="ans" name="answer" value="@q.UserAnswer" class="col-md-2 bg-dark-subtle"/>
+                        <label for="ans" class="col-md-5">@q.Query</label>
+                        <input type="text" id="ans" name="answer" value="@q.UserAnswer" class="col-md-4 bg-dark-subtle"/>
                         <input type="hidden" name="id" value="@q.Source.EntryId"/>
                         <input type="hidden" name="query" value="@q.Query"/>
-                        <button type="submit" class="col-md-2 ms-5 btn btn-info">Submit</button>
+                        <button type="submit" class="col-md-1 ms-5 btn btn-info">Submit</button>
                         @if (q.UserAnswer != null)
                         {
                             if (q.Correct)
