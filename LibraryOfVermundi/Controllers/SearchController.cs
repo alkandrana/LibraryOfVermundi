@@ -31,7 +31,8 @@ public class SearchController : Controller
     // Search function
     public IActionResult SearchReader(string key)
     {
-        var model = _repo.GetEntryByTitle(key);
+        var entries = _repo.GetAllEntries();
+        var model = entries.FirstOrDefault(e => e.Title.Contains(key));
         return View(model);
     }
     

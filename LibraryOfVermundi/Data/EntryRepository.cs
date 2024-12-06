@@ -55,11 +55,6 @@ public class EntryRepository : IEntryRepository
         return _context.SaveChanges();
     }
 
-    public Entry? GetEntryByTitle(string key)
-    {
-        return _context.Entries.FirstOrDefault(e => e.Title.Contains(key));
-    }
-
     public List<Category> GetAllCategories(string mode)
     {
         List<Category> categories;
@@ -75,11 +70,5 @@ public class EntryRepository : IEntryRepository
             categories = _context.Categories.ToList();
         }
         return categories;
-    }
-
-    public List<Entry> GetEntriesByCategory(string category)
-    {
-        List<Entry> entries =  _context.Entries.Where(e => e.CategoryId == category).ToList();
-        return entries;
     }
 }

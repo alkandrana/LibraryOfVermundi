@@ -12,12 +12,8 @@ public interface IEntryRepository
 
     public int StoreEntry(Entry model);
     public int StoreAppUser(AppUser model);
-
-    public Entry? GetEntryByTitle(string search);
     
     public List<Category> GetAllCategories(string mode);
-    
-    public List<Entry> GetEntriesByCategory(string category);
     
     public int UpdateEntry(Entry model);
 }

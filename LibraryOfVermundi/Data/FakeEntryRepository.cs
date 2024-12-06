@@ -47,19 +47,7 @@ public class FakeEntryRepository : IEntryRepository
         int status = 0;
         return status;
     }
-
-    public Entry? GetEntryByTitle(string search)
-    {
-        foreach (var entry in _entries)
-        {
-            if (entry.Title.ToLower().Contains(search.ToLower()))
-            {
-                return entry;
-            }
-        }
-
-        return null;
-    }
+    
 
     public List<Category> GetAllCategories(string mode)
     {
@@ -70,19 +58,7 @@ public class FakeEntryRepository : IEntryRepository
         }
         return categories;
     }
-
-    public List<Entry> GetEntriesByCategory(string category)
-    {
-        List<Entry> entriesByCat = new List<Entry>();
-        foreach (Entry e in _entries)
-        {
-            if (e.CategoryId == category)
-            {
-                entriesByCat.Add(e);
-            }
-        }
-        return entriesByCat;
-    }
+    
     public List<AppUser> GetAllUsers()
     {
         List<AppUser> users = new List<AppUser>();
