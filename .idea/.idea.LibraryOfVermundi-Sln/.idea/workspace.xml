@@ -8,7 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33b78785-e164-42f8-bd55-3545f980d91b" name="Changes" comment="" />
+    <list default="true" id="33b78785-e164-42f8-bd55-3545f980d91b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/wwwroot/css/site.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,22 +47,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.LibraryOfVermundi: WebApplication1.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.WebApplication1.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;restructure&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.LibraryOfVermundi: WebApplication1.executor": "Run",
+    ".NET Launch Settings Profile.WebApplication1.executor": "Run",
+    "Azure - Web App.Publish LibraryOfVermundi to Azure.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LibraryOfVermundi: WebApplication1">
+    <configuration name="Publish LibraryOfVermundi to Azure" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-WebDevAtLCC-954b" />
+      <option name="appServicePlanResourceGroupName" value="WebDevAtLCC" />
+      <option name="openBrowser" value="true" />
+      <option name="operatingSystem" value="Linux" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/LibraryOfVermundi/LibraryOfVermundi.csproj" />
+      <option name="region" value="westus" />
+      <option name="resourceGroupName" value="WebDevAtLCC" />
+      <option name="subscriptionId" value="812c727c-c29a-49a6-a95b-83c88b6a7806" />
+      <option name="webAppName" value="LibraryOfVermundi" />
+      <method v="2">
+        <option name="Build" default="false" projectName="LibraryOfVermundi" projectPath="$PROJECT_DIR$/LibraryOfVermundi/LibraryOfVermundi.csproj" />
+        <option name="LaunchBrowser.Before.Run" url="libraryofvermundi.azurewebsites.net" />
+      </method>
+    </configuration>
     <configuration name="LibraryOfVermundi: WebApplication1" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/LibraryOfVermundi/LibraryOfVermundi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -129,6 +152,7 @@
       <workItem from="1733415121413" duration="3133000" />
       <workItem from="1733455578581" duration="1154000" />
       <workItem from="1733458220182" duration="3806000" />
+      <workItem from="1733524388647" duration="3145000" />
     </task>
     <servers />
   </component>
