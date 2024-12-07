@@ -32,7 +32,7 @@ public class SearchController : Controller
     public IActionResult SearchReader(string key)
     {
         var entries = _repo.GetAllEntries();
-        var model = entries.FirstOrDefault(e => e.Title.Contains(key));
+        var model = entries.FirstOrDefault(e => e.Title.ToLower().Contains(key.ToLower()));
         return View(model);
     }
     

@@ -10,8 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="33b78785-e164-42f8-bd55-3545f980d91b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Views/Home/Trivia.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Views/Home/Trivia.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/SearchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +153,7 @@
       <workItem from="1733415121413" duration="3133000" />
       <workItem from="1733455578581" duration="1154000" />
       <workItem from="1733458220182" duration="3806000" />
-      <workItem from="1733524388647" duration="4359000" />
+      <workItem from="1733524388647" duration="5337000" />
     </task>
     <servers />
   </component>
