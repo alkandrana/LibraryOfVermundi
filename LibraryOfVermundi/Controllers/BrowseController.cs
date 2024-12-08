@@ -13,7 +13,6 @@ public class BrowseController : Controller
     {
         _repo = r;
     }
-    // GET
     public IActionResult Index()
     {
         var categories = _repo.GetAllCategories("complex");

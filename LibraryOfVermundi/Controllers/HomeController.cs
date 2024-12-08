@@ -20,7 +20,7 @@ namespace LibraryOfVermundi.Controllers
 
         public IActionResult Trivia()
         {   // For each category, generate a random number and use it to select an
-            // article from that category to base one of the five questions on
+            // article from that category to base one of the five quiz questions on
             Random gen = new Random();
             List<Entry> entries = _repo.GetAllEntries();
             List<string> categories = entries.Select(c => c.CategoryId).Distinct().ToList();

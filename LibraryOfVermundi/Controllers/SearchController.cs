@@ -13,7 +13,6 @@ public class SearchController : Controller
     {
         _repo = r;
     }
-    // GET
     public IActionResult Index()
     {
         Random gen = new Random();

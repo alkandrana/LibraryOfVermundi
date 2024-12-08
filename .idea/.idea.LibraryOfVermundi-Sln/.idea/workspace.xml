@@ -10,7 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="33b78785-e164-42f8-bd55-3545f980d91b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryOfVermundi-Sln/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/BrowseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/BrowseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/SearchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/ContributionForm.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/ContributionForm.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryOfVermundi/Views/Search/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,22 +53,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.LibraryOfVermundi: WebApplication1.executor": "Run",
-    ".NET Launch Settings Profile.WebApplication1.executor": "Run",
-    "Azure - Web App.Publish LibraryOfVermundi to Azure.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.LibraryOfVermundi: WebApplication1.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.WebApplication1.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish LibraryOfVermundi to Azure.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LibraryOfVermundi: WebApplication1">
     <configuration name="Publish LibraryOfVermundi to Azure" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-WebDevAtLCC-954b" />
@@ -153,7 +158,8 @@
       <workItem from="1733415121413" duration="3133000" />
       <workItem from="1733455578581" duration="1154000" />
       <workItem from="1733458220182" duration="3806000" />
-      <workItem from="1733524388647" duration="5337000" />
+      <workItem from="1733524388647" duration="6098000" />
+      <workItem from="1733634074024" duration="3027000" />
     </task>
     <servers />
   </component>
@@ -176,26 +182,13 @@
           <line>42</line>
           <properties documentPath="$PROJECT_DIR$/LibraryOfVermundi/Controllers/HomeController.cs" containingFunctionPresentation="Method 'Trivia'">
             <startOffsets>
-              <option value="1429" />
+              <option value="1434" />
             </startOffsets>
             <endOffsets>
-              <option value="1430" />
+              <option value="1435" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LibraryOfVermundi/Quiz/Question.cs</url>
-          <line>58</line>
-          <properties documentPath="$PROJECT_DIR$/LibraryOfVermundi/Quiz/Question.cs" containingFunctionPresentation="Property 'CorrectAnswer'">
-            <startOffsets>
-              <option value="2088" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2119" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
