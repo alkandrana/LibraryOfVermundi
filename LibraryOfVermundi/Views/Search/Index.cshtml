@@ -23,25 +23,25 @@
         </ul>
         <div class="col-9 main ms-0">
             <h1 class="text-center">Welcome to the Library Catalog</h1>
-            <h5 class="pt-5">
+            <p class="pt-5 lh-lg fst-italic fs-4">
                 Follow the links on the left to contribute an entry to the Library's vaults; 
                 use the search function to search for a specific article; 
                 or check out our featured article below.
-            </h5>
+            </p>
             <div class="mt-5">
-                <h5 class="text-center">Featured Article:</h5>
+                <h2 class="text-center">Featured Article:</h2>
                 @if (Model.RawContent != "")
                 {
-                    <h5 class="text-center">@Model.Title</h5>
+                    <h3 class="text-center pb-3">@Model.Title</h3>
                     foreach (string par in Model.Content)
                     {
                         if (par.StartsWith("**"))
                         {
-                            <h5>@par.Substring(2, par.Length - 4)</h5>
+                            <h5 class="p-3">@par.Substring(2, par.Length - 4)</h5>
                         }
                         else if (par.Length < 100)
                         {
-                            <h4>@par</h4>
+                            <h4 class="p3">@par</h4>
                         }
                         else
                         {
