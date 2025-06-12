@@ -1,0 +1,49 @@
+@model List<Article>
+@{
+    ViewData["Title"] = "Library Catalog";
+}
+
+<h1 class="text-center">Welcome to the Library Catalog</h1>
+<form asp-action="Search" asp-controller="Library" class="container">
+    <div class="row">
+        <input type="text" placeholder="Enter a title, keyword, topic, etc..." name="key" class="col-md-10">
+        <button type="submit" class="col-md-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+</form>
+<p class="pt-5 lh-lg fst-italic fs-4">
+    From here you can use the search function above to search for a specific article or keyword, 
+    or check out our featured articles below.
+</p>
+@if (Model.Count == 3)
+{
+    <div class="mt-5">
+        <h2 class="text-center">Featured Articles:</h2>
+        <div class="img-links row">
+            <a asp-controller="Library" asp-action="SearchById" asp-route-id="@Model[0].ArticleId" class="col-md-4">
+                <figure>
+                    <img src="pics/k-mitch-hodge-castle-unslpash.jpg" alt="castle in a green woodsy clearing" class="container"/>
+                    <figcaption class="text-center">@Model[0].Title</figcaption>
+                </figure>
+            </a>
+            <a asp-controller="Library" asp-action="SearchById" asp-route-id="@Model[1].ArticleId" class="col-md-4">
+                <figure>
+                    <img src="pics/Bruno-crystal-ball-pixabay.jpg" alt="purple crystal ball" class="container"/>
+                    <figcaption class="text-center">@Model[1].Title</figcaption>
+                </figure>
+            </a>
+            <a asp-controller="Library" asp-action="SearchById" asp-route-id="@Model[2].ArticleId" class="col-md-4">
+                <figure>
+                    <img src="pics/jim-cooper-fire-dragon-pixabay.jpg" alt="fiery dragon perched on top of a hill" class="container"/>
+                    <figcaption class="text-center">@Model[2].Title</figcaption>
+                </figure>
+            </a>
+        </div>
+    
+    </div>
+}
+else
+{
+    <p class="fst-italic fs-5">There are not enough articles to display.</p>
+}      
+
+

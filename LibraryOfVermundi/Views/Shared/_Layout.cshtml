@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - The Library of Vermundi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/CS296N_TermProject_RMyers.styles.css" asp-append-version="true"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand p-2" asp-area="" asp-controller="Home" asp-action="Index">The Library of Vermundi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" asp-controller="Library" asp-action="Index" data-bs-toggle="dropdown">Library</a>
+                        <ul class="dropdown-menu bg-dark text-light">
+                            <li><a class="dropdown-item text-light" asp-action="Index" asp-controller="Library">Search</a></li>
+                            <li><a class="dropdown-item text-light" asp-action="Browse" asp-controller="Library">Browse</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" asp-controller="Converse" asp-action="Index" data-bs-toggle="dropdown">Tea Room</a>
+                        <ul class="dropdown-menu bg-dark text-light">
+                            <li><a class="dropdown-item text-light" asp-action="Index" asp-controller="Converse">Tea Room</a></li>
+                            <li><a class="dropdown-item text-light" asp-action="Contribute" asp-controller="Converse">Contribute</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <li class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" asp-controller="Admin" asp-action="Index" data-bs-toggle="dropdown"><span class="fas fa-cog"></span>&nbsp;Admin</a>
+                        <ul class="dropdown-menu bg-dark text-light">
+                            <li>
+                                <a class="dropdown-item text-light" asp-action="Index" asp-controller="Admin">Admin Portal</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" asp-action="Manage" asp-controller="Admin">User Management</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" asp-action="Select" asp-controller="Admin">Article Selection</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" asp-action="Vet" asp-controller="Admin">Contribution Management</a>
+                            </li>
+                        </ul>
+                    </li>
+                    }
+                    <li class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" asp-action="Login" asp-controller="Account" data-bs-toggle="dropdown">Account</a>
+                        <ul class="dropdown-menu bg-dark">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    <form method="post" asp-action="Logout" asp-controller="Account">
+                                        <span class="dropdown-item text-light">@User.Identity.Name</span>
+                                        <input type="submit" value="Log Out" class="dropdown-item text-light"/>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                var action = ViewContext.RouteData.Values["action"]?.ToString();
+                                <li><a class="dropdown-item text-light" asp-action="Register" asp-controller="Account">Register</a></li>
+                                <li><a class="dropdown-item text-light" asp-action="Login" asp-controller="Account">Log In</a></li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container text-light element-center">
+    <main role="main" class="pb-3 min-vh-100">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container p-3">
+        &copy; 2025 - The Library of Vermundi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        @if (ViewData["Title"].ToString() == "Library Catalog")
+        {
+            <div>
+                Photo Credit, from left to right: &nbsp;|&nbsp;Photo by <a href="https://unsplash.com/@@kmitchhodge?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">K. Mitch Hodge</a> on <a href="https://unsplash.com/photos/grey-concrete-building-surrounded-by-trees-pzFtrkLpjdM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+                &nbsp;|&nbsp;Image by <a href="https://pixabay.com/users/bru-no-1161770/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4043805">Bruno</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4043805">Pixabay</a>
+                &nbsp;|&nbsp;Image by <a href="https://pixabay.com/users/jcoope12-17392968/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8747925">Jim Cooper</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8747925">Pixabay</a>
+            </div>
+        }
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/c15e31b1d9.js" crossorigin="anonymous"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

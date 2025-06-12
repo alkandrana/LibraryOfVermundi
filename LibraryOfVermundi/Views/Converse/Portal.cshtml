@@ -1,0 +1,43 @@
+@using LibraryOfVermundi.Models
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model List<LibraryOfVermundi.Models.Conversation>
+
+@{
+    ViewBag.Title = "Conversation Portal";
+}
+
+<h2 class="text-center">Conversation Portal</h2>
+@if (TempData["message"] != null)
+{
+    <span class="text-@TempData["type"]">@TempData["message"]</span>
+}
+
+<p class="p-5 w-75 fst-italic text-center element-center">
+    Each of the links below represents a conversation in progress.
+    Click on one of the links to join the conversation, or click
+    on the button below to start a new topic.
+</p>
+@if (Model.Count > 0)
+{
+    <ul>
+        @foreach (Conversation c in Model)
+        {
+            <li class="row p-3">
+                <a asp-action="ConversePage" asp-controller="Converse" asp-route-id="@c.ConversationId" class="col-md-4">@c.Title</a>
+                @if (ViewBag.CurrentUser == c.Author || User.IsInRole("Admin"))
+                {
+                    <a asp-action="DeleteConversation" asp-route-id="@c.ConversationId" class="col-md-1 btn btn-danger">Delete</a>
+                }
+            </li>
+            
+            
+        }
+    </ul>
+}
+else
+{
+    <p class="fs-2 fst-italic text-info text-center p-5">There are no conversations yet. Want to start one?</p>
+}
+<a asp-action="Start" asp-controller="Converse" class="btn btn-info offset-8 mt-5">
+    Start a New Conversation
+</a>

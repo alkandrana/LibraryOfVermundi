@@ -1,0 +1,20 @@
+
+@{
+    ViewBag.Title = "Converse Home";
+}
+
+<h2>Converse Home</h2>
+<p class="fst-italic text-center fs-5 p-5">
+    This is where you may directly participate in the Library's operations, and connect with other members of the community.
+    The Portal button will take you to a platform where you may join in the conversation with other participants.
+    The Contribute button will take you to a form where you may submit an entry for inclusion in the Library's records.
+</p>
+
+<div class="row">
+    <div class="col">
+        <a asp-action="Portal" asp-controller="Converse" class="btn btn-danger red text-light offset-4">Conversation Portal</a>
+    </div>
+    <div class="col">
+        <a asp-action="Contribute" asp-controller="Converse" class="btn btn-success offset-4">Contribution Form</a>
+    </div>
+</div>

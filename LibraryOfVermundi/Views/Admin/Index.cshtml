@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Admin Portal";
+}
+
+<h2>Admin Portal</h2>
+<p class="fst-italic text-center fs-5 p-5">
+    As an Admin, you may view and manage user profiles, edit articles, and vet user contributions from here. 
+    Select the appropriate button.
+</p>
+
+<div class="row">
+    <div class="col">
+        <a asp-action="Manage" asp-controller="Admin" class="btn btn-danger red text-light offset-4">User Management</a>
+    </div>
+    <div class="col">
+        <a asp-action="Select" asp-controller="Admin" class="btn btn-success green offset-4">Edit Articles</a>
+    </div>
+    <div class="col">
+        <a asp-action="Vet" asp-controller="Admin" class="btn btn-warning offset-4">Vet Contributions</a>
+    </div>
+</div>
+
