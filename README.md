@@ -1,4 +1,4 @@
-# 📚 Library of Vermundi
+# 📚 The Library of Vermundi
 
 An ASP.NET web application inspired by an original epic-fantasy setting.
 Built as the term project for two ASP.NET courses, the application evolved from a content-driven site into a multi-feature platform with a structured domain model and real-time communication features.
@@ -113,4 +113,4 @@ In technical terms:
 
 ## 📄 License
 
-MIT (or your chosen license)
+MIT
