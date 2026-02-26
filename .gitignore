@@ -396,9 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/OnTolkien/OnTolkien/appsettings.Development.json
-/OnTolkien/OnTolkien/appsettings.Development.json
-/OnTolkien/OnTolkien/appsettings.Production.json
+/LibraryOfVermundi/appsettings.Development.json
+/LibraryOfVermundi/appsettings.Production.json
 # Default ignored files
 /shelf/
 /workspace.xml
